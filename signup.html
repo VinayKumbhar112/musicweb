@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        /* Same styling as signin.html */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://img.freepik.com/premium-photo/music-note-design-element-3d-rendering-illustration-black-white-colors_494741-105456.jpg');
+            /* background: linear-gradient(to right, #191a3d, #111224); */
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #e7e7e9;
+        }
+        main {
+            background: #1e1e2d;
+            border-radius: 10px;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #8e8e93;
+        }
+        input {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #28283e;
+            color: #e7e7e9;
+        }
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(95, 88, 255, 0.7);
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #4b5de6;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #393fbf;
+        }
+        p {
+            text-align: center;
+            margin-top: 10px;
+        }
+        p a {
+            color: #4b5de6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>MUSIC WORLD</h1>
+    <main>
+        <header>
+            <h1>Sign Up</h1>
+        </header>
+        <form id="signup-form">
+            <label for="username">Username:</label>
+            <input type="text" id="signup-username" placeholder="Enter your username" required>
+            <label for="email">Email:</label>
+            <input type="email" id="signup-email" placeholder="Enter your email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="signup-password" placeholder="Enter your password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="signin.html">Sign In</a></p>
+    </main>
+    <script>
+        document.getElementById('signup-form')?.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('signup-username').value.trim();
+            const email = document.getElementById('signup-email').value.trim();
+            const password = document.getElementById('signup-password').value;
+
+            if (!username || !email || !password) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const existingUser = users.find(user => user.email === email);
+
+            if (existingUser) {
+                alert('User with this email already exists.');
+                return;
+            }
+
+            users.push({ username, email, password });
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('Sign up successful! You can now sign in.');
+            window.location.href = 'signin.html';
+        });
+    </script>
+</body>
+</html>
