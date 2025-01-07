@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arijit Singh Songs</title>
+    <link rel="stylesheet" href="arijit.css">
+</head>
+<body>
+  <video class="video-background"  src="musicimg/water.mp4" autoplay muted loop>
+    <source src="video/videoloop.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+    <header>
+        <h1>Arijit Singh - Music Collection</h1>
+    </header>
+    <main>
+        <section class="song-list">
+            <h2>Songs List</h2>
+            <ul>
+                <li>
+                    <h3>Ve Kamleya</h3>
+                    <audio id="audio-tum-hi-ho">
+                        <source src="audio/tum_hi_ho.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="play" data-audio="audio-tum-hi-ho">Play</button>
+                    <button class="pause" data-audio="audio-tum-hi-ho">Pause</button>
+                    <button class="stop" data-audio="audio-tum-hi-ho">Stop</button>
+                </li>
+                <li>
+                    <h3>Khamoshiyan</h3>
+                    <audio id="audio-channa-mereya">
+                        <source src="audio/channa_mereya.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="play" data-audio="audio-channa-mereya">Play</button>
+                    <button class="pause" data-audio="audio-channa-mereya">Pause</button>
+                    <button class="stop" data-audio="audio-channa-mereya">Stop</button>
+                </li>
+                <li>
+                    <h3>O Sajni</h3>
+                    <audio id="audio-gerua">
+                        <source src="audio/gerua.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="play" data-audio="audio-gerua">Play</button>
+                    <button class="pause" data-audio="audio-gerua">Pause</button>
+                    <button class="stop" data-audio="audio-gerua">Stop</button>
+                </li>
+                <!-- Add more songs here -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Music Website | Designed for Arijit Singh Fans</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

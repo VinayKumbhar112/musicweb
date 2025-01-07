@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            width: 300px;
+            margin: auto;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Email Validation Form</h2>
+    <form id="emailForm">
+        <label for="email">Enter your Email ID:</label>
+        <input type="text" id="email" name="email" placeholder="example@domain.com" required>
+        <button type="button" onclick="validateEmail()">Validate Email</button>
+        <p id="message"></p>
+    </form>
+
+    <script>
+        function validateEmail() {
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message");
+            // Regular expression for validating an Email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (emailPattern.test(email)) {
+                message.style.color = "green";
+                message.textContent = "Valid Email ID.";
+            } else {
+                message.style.color = "red";
+                message.textContent = "Invalid Email ID. Please follow the pattern example@domain.com";
+            }
+        }
+    </script>
+</body>
+</html>
